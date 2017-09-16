@@ -1,20 +1,12 @@
 package com.na.jefimija.layoutcustomanimation;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
-import android.support.annotation.Size;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
-import android.view.animation.Interpolator;
-import android.view.animation.LinearInterpolator;
 import android.view.animation.Transformation;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         //Initialize big arc buttons
         btnShowBigArc = (Button) findViewById(R.id.btnShowBigArc);
         btnHideBigArc = (Button) findViewById(R.id.btnHideBigArc);
+
     }
 
     private void Declaration() {
@@ -59,7 +52,10 @@ public class MainActivity extends AppCompatActivity {
         btnHideSmallArc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                smallArcWidthAnimation = new WidthAnimation(smallArcLayout, smallArcLayout.getMeasuredWidth(), 1);
+                if (smallArcWidthAnimation == null)
+                    smallArcWidthAnimation = new WidthAnimation(smallArcLayout, smallArcLayout.getMeasuredWidth(), 1);
+                else
+                    smallArcWidthAnimation.restart();
                 smallArcLayout.startAnimation(smallArcWidthAnimation);
             }
         });
@@ -75,18 +71,22 @@ public class MainActivity extends AppCompatActivity {
         btnHideBigArc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bigArcWidthAnimation = new WidthAnimation(bigArcLayout, bigArcLayout.getMeasuredWidth(), 1);
+                if (bigArcWidthAnimation == null)
+                    bigArcWidthAnimation = new WidthAnimation(bigArcLayout, bigArcLayout.getMeasuredWidth(), 1);
+                else
+                    bigArcWidthAnimation.restart();
                 bigArcLayout.startAnimation(bigArcWidthAnimation);
             }
         });
     }
 
+
 }
 
 class WidthAnimation extends Animation {
 
-    private final int fromWidth;
     private final View view;
+    private final int fromWidth;
     private float toWidth;
     private int initialWidth;
     private boolean didReverse = false;
@@ -96,7 +96,9 @@ class WidthAnimation extends Animation {
         setInitialWidth(view.getMeasuredWidth());
         this.fromWidth = fromWidth;
         this.toWidth = (toWidth - fromWidth);
+    }
 
+    public void setup() {
         //Set default properites
         this.setDuration(500);
         this.setInterpolator(new DecelerateInterpolator());
@@ -112,6 +114,10 @@ class WidthAnimation extends Animation {
 
     public int getInitialWidth() {
         return initialWidth;
+    }
+
+    public void restart() {
+        this.didReverse = false;
     }
 
     public WidthAnimation reverse() {
@@ -133,3 +139,4 @@ class WidthAnimation extends Animation {
         return true;
     }
 }
+
