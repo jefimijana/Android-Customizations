@@ -90,6 +90,7 @@ class WidthAnimation extends Animation {
     private float toWidth;
     private int initialWidth;
     private boolean didReverse = false;
+    private final static int DEFAULT_DURATION = 500;
 
     public WidthAnimation(View view, int fromWidth, int toWidth) {
         this.view = view;
@@ -100,7 +101,7 @@ class WidthAnimation extends Animation {
 
     public void setup() {
         //Set default properites
-        this.setDuration(500);
+        this.setDuration(DEFAULT_DURATION);
         this.setInterpolator(new DecelerateInterpolator());
     }
 
