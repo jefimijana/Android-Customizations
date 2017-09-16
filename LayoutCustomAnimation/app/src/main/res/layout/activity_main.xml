@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.na.jefimija.layoutcustomanimation.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/rlHelper"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@android:color/holo_green_dark">
+
+        <Button
+            android:id="@+id/btnShowSmallArc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ShowSmallArc" />
+
+        <Button
+            android:id="@+id/btnHideSmallArc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnShowSmallArc"
+            android:text="HideSmallArc" />
+
+        <Button
+            android:id="@+id/btnShowBigArc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnHideSmallArc"
+            android:text="ShowBigArc" />
+
+        <Button
+            android:id="@+id/btnHideBigArc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnShowBigArc"
+            android:text="HideBigArc" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/smallArcLayout"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/rlHelper"
+        android:background="@android:color/holo_red_dark" />
+
+    <RelativeLayout
+        android:id="@+id/bigArcLayout"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/smallArcLayout"
+        android:background="@android:color/holo_orange_light" />
+</RelativeLayout>
