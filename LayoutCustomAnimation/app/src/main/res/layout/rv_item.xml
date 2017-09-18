@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:focusable="true">
+
+    <RelativeLayout
+        android:id="@+id/cardShadow"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/cardShadowBasicColor" />
+
+    <RelativeLayout
+        android:id="@+id/card"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        android:layout_marginLeft="15dp"
+        android:background="@color/cardBasicColor"
+        android:clipToPadding="false"
+        android:elevation="5dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"/>
+    </RelativeLayout>
+
+</RelativeLayout>

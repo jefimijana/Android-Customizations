@@ -9,8 +9,8 @@
         android:id="@+id/rlHelper"
         android:layout_width="100dp"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:background="@android:color/holo_green_dark">
+        android:background="@android:color/holo_green_dark"
+        android:gravity="center">
 
         <Button
             android:id="@+id/btnShowSmallArc"
@@ -50,8 +50,16 @@
 
     <RelativeLayout
         android:id="@+id/bigArcLayout"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_toEndOf="@id/smallArcLayout"
-        android:background="@android:color/holo_orange_light" />
+        android:background="@android:color/holo_orange_light">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+    </RelativeLayout>
 </RelativeLayout>
